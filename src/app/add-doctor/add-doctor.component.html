@@ -1,0 +1,79 @@
+<div class="container bg-seconday mt-5 shadow-lg p-3 mb-5 bg-body rounded">
+    <div class="text1 fs-2 fw-bold text-center">Doctor Registration Window</div>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit() ">
+        <div class="form-group bg-seconday mt-5 shadow-lg p-3 bg-body rounded">
+            <label for="name" class="text-center fw-bold fs-5">Name</label>
+            <input type="text" class="form-control" id="name" formControlName="doctName"
+                [ngClass]="{'is-invalid':submitted && reactiveForm['controls']['doctName']['errors']}">
+            <div *ngIf="submitted && reactiveForm['controls']['doctName']['errors']['required'] || (reactiveForm.get('doctName').touched && reactiveForm.get('doctName').invalid)"
+                class="text-danger">
+                Name must not be empty
+            </div>
+        </div>
+        <div class="form-group bg-seconday mt-4 shadow-lg p-3 bg-body rounded">
+            <label for="name" class="text-center fw-bold fs-5">Age</label>
+            <input type="number" class="form-control" id="name" formControlName="age"
+                [ngClass]="{'is-invalid':submitted && reactiveForm['controls']['age']['errors']}">
+            <div *ngIf="submitted && reactiveForm['controls']['age']['errors'] || (reactiveForm.get('age').invalid && reactiveForm.get('age').touched) "
+                class="text-danger">
+                <div
+                    *ngIf="submitted && reactiveForm['controls']['age']['errors']['required'] || (reactiveForm.get('age').invalid && reactiveForm.get('age').touched)">
+                    Age is required
+                </div>
+                <div
+                    *ngIf="submitted && reactiveForm['controls']['age']['errors']['min']  || (reactiveForm.get('age').invalid && reactiveForm.get('age').touched)">
+                    Age must be greater than 21
+                </div>
+                <div
+                    *ngIf="submitted && reactiveForm['controls']['age']['errors']['max']  || (reactiveForm.get('age').invalid && reactiveForm.get('age').touched)">
+                    Age must be less than 100
+                </div>
+            </div>
+        </div>
+        <div class="form-group bg-seconday mt-4 shadow-lg p-3 bg-body rounded">
+            <h5 class="fw-bold">Select Gender</h5>
+            <div class="form-check">
+                <input class="form-check-input fs-5" type="radio" id="male" formControlName="gender" value="Male"
+                    checked [ngClass]="{'is-invalid':submitted && reactiveForm['controls']['gender']['errors']}">
+                <label class="form-check-label" for="male">
+                    Male
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input fs-5" type="radio" formControlName="gender" id="Female" value="Female"
+                    [ngClass]="{'is-invalid':submitted && reactiveForm['controls']['gender']['errors']}">
+                <label class="form-check-label" for="Female">
+                    Female
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input fs-5" type="radio" formControlName="gender" id="others" value="others"
+                    [ngClass]="{'is-invalid':submitted && reactiveForm['controls']['gender']['errors']}">
+                <label class="form-check-label" for="others">
+                    Others
+                </label>
+            </div>
+            <div *ngIf="submitted && reactiveForm['controls']['gender']['errors']['required']  || (reactiveForm.get('gender').invalid && reactiveForm.get('gender').touched)"
+                class="text-danger">
+                Select at least one gender
+            </div>
+        </div>
+
+        <div class="form-group bg-seconday mt-4 shadow-lg p-3 bg-body rounded">
+            <h5 class="fw-bold">Select your Specialist</h5>
+            <select class="form-select" aria-label="Default select example" formControlName="specialist"
+                [ngClass]="{'is-invalid':submitted && reactiveForm['controls']['specialist']['errors']}">
+                <option selected>Select Specialist </option>
+                <option *ngFor="let doctor of doctorField">{{doctor}}</option>
+            </select>
+            <div class="text-danger"
+                *ngIf="submitted && reactiveForm['controls']['specialist']['errors']['required'] || (!reactiveForm.get('specialist').valid && reactiveForm.get('specialist').touched )">
+                One Specialist must be selected
+            </div>
+        </div>
+
+        <div class="button">
+            <button type="submit" class="btn btn-success mt-3 fs-5 mb-2">Submit</button>
+        </div>
+    </form>
+</div>

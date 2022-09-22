@@ -1,0 +1,24 @@
+<div class="navigation">
+  <div class="left">
+    <div class="text-white fs-5 mt-3 ms-3">Welcome to Hospital Managment Application</div>
+  </div>
+  <div class="right">
+    <div [routerLinkActive]="'active'"><a routerLink="home">Home</a></div>
+    <div [routerLinkActive]="'active'"><a routerLink="doctor">Doctor</a></div>
+    <div [routerLinkActive]="'active'"><a routerLink="add-doctor">Add Doctor</a></div>
+    <div [routerLinkActive]="'active'"><a routerLink="patient">Patient</a></div>
+    <div [routerLinkActive]="'active'"><a routerLink="add-patient">Add Patient</a></div>
+    <div [routerLinkActive]="'active'"><a routerLink="take-appoitment">Take prescription</a></div>
+    <!-- <ul>
+      <li [routerLinkActive]="'active'"><a routerLink="home" class="fs-5">Home</a></li>
+      <li [routerLinkActive]="'active'"><a routerLink="doctor" class="fs-5">Doctor</a></li>
+      <li [routerLinkActive]="'active'"><a routerLink="add-doctor" class="fs-5">Add Doctor</a></li>
+      <li [routerLinkActive]="'active'"><a routerLink="patient" class="fs-5">Patient</a></li>
+      <li [routerLinkActive]="'active'"><a routerLink="add-patient" class="fs-5">Add Patient</a></li>
+      <li [routerLinkActive]="'active'"><a routerLink="take-appoitment" class="fs-5">Take appointment</a></li>
+    </ul> -->
+  </div>
+</div>
+<div class="cont">
+  <router-outlet></router-outlet>
+</div>

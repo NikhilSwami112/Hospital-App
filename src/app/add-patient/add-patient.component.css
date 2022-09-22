@@ -1,0 +1,33 @@
+.btn {
+  /* margin-left: 2px; */
+  width: 80%;
+  border-radius: 25px;
+}
+.button {
+  width: 100%;
+  display: flex;
+  margin-left: 30%;
+  /* margin: 0 auto; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+.container {
+  width: 60%;
+}
+
+form {
+  width: 80%;
+  /* padding-left: 30px; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  display: flex;
+  flex-direction: column;
+}
+
+form div {
+  margin-left: 20%;
+}
+select,
+option {
+  font-size: 1.2rem;
+}

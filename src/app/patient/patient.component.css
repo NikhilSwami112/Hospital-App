@@ -1,0 +1,33 @@
+.container {
+  width: 80%;
+}
+
+.input-group {
+  margin: 0 auto;
+  width: 30%;
+  position: absolute;
+}
+
+.inner-main {
+  position: relative;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.patient-info {
+  margin-left: 10%;
+  margin-bottom: 20px;
+}
+
+.patient-info {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+table {
+  width: 80%;
+  margin-left: 10%;
+}

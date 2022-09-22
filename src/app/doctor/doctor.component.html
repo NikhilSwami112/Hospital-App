@@ -1,0 +1,43 @@
+<div class="container bg-seconday mt-5 shadow-lg p-3 mb-5 bg-body rounded">
+
+    <div class="text-center fs-2 fw-bold mb-5" style="font-family: cursive;">Welcome To Doctor Section</div>
+    <div class="mt-5 fw-bold fs-5 text-center">Please Select Doctor From Dropdown</div>
+    <div class="select-box mb-3">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="doctorId"
+            (change)="dispalyTable($event)">
+            <option selected value="null">Select Doctor </option>
+            <option *ngFor="let doc of doctors" [value]="doc['doctId']">{{doc["doctName"]}}</option>
+        </select>
+    </div>
+
+    <table>
+        <thead *ngIf="doctor !=null">
+            <tr>
+                <th>Id</th>
+                <td>{{doctor["doctId"]}}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{doctor["doctName"]}}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{doctor["age"]}}</td>
+
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{doctor["gender"]}}</td>
+            </tr>
+            <tr>
+                <th>Specialist</th>
+                <td>{{doctor["specialist"]}}</td>
+            </tr>
+            <tr>
+                <th>Total no of patient attended</th>
+                <td>{{doctor["totalPatientAttended"]}}</td>
+            </tr>
+        </thead>
+    </table>
+
+</div>

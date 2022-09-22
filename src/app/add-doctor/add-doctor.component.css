@@ -1,0 +1,35 @@
+.container{
+     width: 60%;
+}
+.button{
+    width: 100%;
+    display: flex;
+    margin-left: 30%;
+    /* margin: 0 auto; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+select,option{
+    font-size: 1.2rem;
+}
+
+
+.btn{
+     /* margin-left: 2px; */
+     width: 80%;
+      border-radius: 25px;
+}
+
+form{
+     width: 80%;
+     /* padding-left: 30px; */
+     /* justify-content: center; */
+     /* align-items: center; */
+     display: flex;
+     flex-direction: column;
+}
+
+form div{
+     margin-left: 20%;
+}

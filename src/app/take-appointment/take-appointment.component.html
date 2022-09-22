@@ -1,0 +1,49 @@
+<div class="container bg-seconday mt-5 shadow-lg p-3 mb-5 bg-body rounded">
+    <div class="text1 fs-2 fw-bold text-center"> Doctor Prescription Window</div>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit() ">
+
+
+        <div class="form-group bg-seconday mt-4 shadow-lg p-3 bg-body rounded">
+            <h5 class="fw-bold">Select Patient<span style="color: blue;" class="ms-2" *ngIf="patientIdd>0">:{{" "+patientIdd}}</span></h5>
+            <select (change)="getAllPatientData()" class="form-select mt-3" aria-label="Default select example"
+                formControlName="patientId"
+                [ngClass]="{'is-invalid':submitted && reactiveForm['controls']['patientId']['errors']}">
+                <option selected>Select patient</option>
+                <option *ngFor="let p of patient" [value]="p['patientId']">{{p["patientName"]}}
+                </option>
+            </select>
+            <div class="text-danger" *ngIf="submitted && reactiveForm['controls']['patientId']['errors']['required']">
+                One Doctor must be selected
+            </div>
+        </div>
+
+        <div class="form-group bg-seconday mt-4 shadow-lg p-3 bg-body rounded">
+            <h5 class="fw-bold">Select Doctor<span style="color: blue;" class="ms-2" *ngIf="doctI>0">:{{" "+doctI}}</span></h5>
+            <select (change)="getSingleDoctor()" class="form-select mt-3" aria-label="Default select example"
+                formControlName="doctId"
+                [ngClass]="{'is-invalid':submitted && reactiveForm['controls']['doctId']['errors']}">
+                <option selected>Select doctor</option>
+                <option *ngFor="let doctor of doctors" [value]="doctor['doctor']['doctId']">
+                    {{doctor['doctor']["doctName"]}}
+                </option>
+            </select>
+            <div class="text-danger" *ngIf="submitted && reactiveForm['controls']['doctId']['errors']['required']">
+                please select doctor
+            </div>
+        </div>
+
+        <div class="form-group bg-seconday mt-4 shadow-lg p-3 bg-body rounded">
+            <label for="prescription" class="text-center fw-bold fs-5">Prescription</label>
+            <input type="text" class="form-control" id="prescription" formControlName="prescription"
+                [ngClass]="{'is-invalid':submitted && reactiveForm['controls']['prescription']['errors']}">
+            <div class="text-danger"
+                *ngIf="submitted && reactiveForm['controls']['prescription']['errors']['required'] || (!reactiveForm.get('prescription').valid && reactiveForm.get('prescription').touched)">
+                please write prescription
+            </div>
+        </div>
+
+        <div class="button">
+            <button type="submit" class="btn btn-success mt-3 fs-5 mb-2">Submit</button>
+        </div>
+    </form>
+</div>

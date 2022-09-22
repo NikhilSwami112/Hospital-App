@@ -1,0 +1,42 @@
+<div class="container bg-seconday mt-5 shadow-lg p-3 mb-5 bg-body rounded">
+    <div class="text1 fs-2 fw-bold text-center mb-5">Patient Diagnosis Report</div>
+    <div class="inner-main">
+        <div class="input-group mb-3 ms-5">
+            <input type="text" class="form-control" placeholder="Enter patient Id" aria-label="Enter patient Id"
+                aria-describedby="button-addon2" [(ngModel)]="patientIdd" id>
+            <button class="btn btn-primary" type="button" id="button-addon2" (click)="getData($event)">Enter</button>
+        </div>
+    </div>
+
+    <div *ngIf="patient.length == 0 && isClicked" class="fs-3 text-danger fw-bold" style="margin-left: 30%;">Given
+        Patient Id
+        not exits</div>
+<div class="patient-info" *ngIf="patient.length !== 0">
+    <div>Patient Id:<span style="color: blue;">{{patient[0]["patient"]["patientId"]}}</span></div>
+    <div>Patient Name:<span style="color: blue;">{{patient[0]["patient"]["patientName"]}}</span></div>
+    <div style="margin-left:30%" class="fs-3">Visited Doctor List</div>
+</div>
+    <table class="table table-striped" *ngIf="patient.length !== 0">
+        <thead>
+            <tr>
+                <th>Doctor Id</th>
+                <th>Doctor Name</th>
+                <th>Department</th>
+                <th>Date Of Visit</th>
+                <th>Prescription</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let d of patient">
+                <td>{{d["doctor"]["doctId"]}}</td>
+                <td>{{d["doctor"]["doctName"]}}</td>
+                <td>{{d["doctor"]["specialist"]}}</td>
+                <td>{{d["patient"]["dateOfVisit"]}}</td>
+                <td
+                    *ngIf="d['patient']['prescription'] == null ? d['patient']['prescription']='yet to visit doctor':  d['patient']['prescription']  ">
+                    {{d['patient']['prescription']}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

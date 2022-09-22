@@ -1,0 +1,49 @@
+.container {
+  /* height: 550px; */
+  width: 60%;
+  /* display: flex; */
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.select-box {
+  width: 30%;
+  margin: 0 auto;
+}
+
+select,
+option {
+  font-size: 1.2rem;
+}
+
+span {
+  /* font-family: cursive; */
+  width: 30%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+table {
+  border: solid 2px violet;
+  padding-top: 30px;
+  border-radius: 5px;
+  width: 90%;
+  margin: 0 auto;
+  /* padding-left: 20px; */
+  background-image: linear-gradient(to right, #00b4db, #0083b0);
+}
+
+th,
+td {
+  border: solid 3px rgb(34, 38, 90);
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+
+section,
+option {
+  font-size: 1.2rem;
+}
